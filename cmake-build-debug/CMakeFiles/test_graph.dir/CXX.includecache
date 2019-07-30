@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/workspace/algorithm-cpp/graph/Graph_base.hpp
+iostream
+-
+vector
+-
+list
+-
+
+/mnt/d/workspace/algorithm-cpp/graph/UndirectedGraph.cpp
+UndirectedGraph.hpp
+/mnt/d/workspace/algorithm-cpp/graph/UndirectedGraph.hpp
+
+/mnt/d/workspace/algorithm-cpp/graph/UndirectedGraph.hpp
+list
+-
+vector
+-
+iostream
+-
+Graph_base.hpp
+/mnt/d/workspace/algorithm-cpp/graph/Graph_base.hpp
+
+/mnt/d/workspace/algorithm-cpp/graph/test_undirectedgraph.cpp
+UndirectedGraph.hpp
+/mnt/d/workspace/algorithm-cpp/graph/UndirectedGraph.hpp
+

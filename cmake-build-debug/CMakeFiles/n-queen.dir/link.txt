@@ -1,0 +1,1 @@
+/usr/bin/c++  -g  -rdynamic CMakeFiles/n-queen.dir/backtracking/n-queen.cpp.o  -o n-queen 
