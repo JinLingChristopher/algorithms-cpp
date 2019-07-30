@@ -37,6 +37,7 @@ int lomuto_partition(int* arr, int lo, int hi, int p) {
 /**
  * quick-select, find the kth element in an unordered array
 */
+
 int quick_select(int*arr, int lo, int hi, int k) {
     if ((hi - lo) == 0) {
         return arr[lo];
