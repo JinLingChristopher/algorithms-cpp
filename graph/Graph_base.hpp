@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
+#include <set>
 
 
 class Graph_base {
@@ -17,13 +17,13 @@ private:
 
 protected:
     int E;
-    std::vector<std::list<int>> adj;
+    std::vector<std::set<int>> adj;
 public:
 
     Graph_base(int v): V(v), E(0) {
         std::cout << "Graph_base(int v) called" << std::endl;
         for (int i = 0; i < v; ++i) {
-            adj.push_back(std::list<int>());
+            adj.push_back(std::set<int>());
         }
     }
 
@@ -45,7 +45,7 @@ public:
         return adj[v].size();
     }
 
-    std::list<int> getAdj(int v) const {
+    std::set<int> getAdj(int v) const {
         return adj[v];
     }
 

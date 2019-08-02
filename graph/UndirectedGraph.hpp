@@ -30,8 +30,8 @@ public:
     }
 
     void addEdges(int v, int w) {
-        adj[v].push_back(w);
-        adj[w].push_back(v);
+        adj[v].insert(w);
+        adj[w].insert(v);
         ++this->E;
     }
 

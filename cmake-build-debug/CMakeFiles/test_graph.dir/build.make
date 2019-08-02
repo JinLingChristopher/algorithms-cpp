@@ -94,6 +94,8 @@ test_graph_EXTERNAL_OBJECTS =
 test_graph: CMakeFiles/test_graph.dir/graph/test_undirectedgraph.cpp.o
 test_graph: CMakeFiles/test_graph.dir/graph/UndirectedGraph.cpp.o
 test_graph: CMakeFiles/test_graph.dir/build.make
+test_graph: /usr/local/lib/libgtest.a
+test_graph: /usr/local/lib/libgtest_main.a
 test_graph: CMakeFiles/test_graph.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/d/workspace/algorithm-cpp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test_graph"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_graph.dir/link.txt --verbose=$(VERBOSE)

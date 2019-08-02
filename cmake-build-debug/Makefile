@@ -67,6 +67,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/opt/cmake/cmake-3.14.3-Linux-x86_64/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -111,57 +122,97 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named n-queen
+# Target rules for targets named test_linkedlist
 
 # Build rule for target.
-n-queen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 n-queen
-.PHONY : n-queen
+test_linkedlist: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_linkedlist
+.PHONY : test_linkedlist
 
 # fast build rule for target.
-n-queen/fast:
-	$(MAKE) -f CMakeFiles/n-queen.dir/build.make CMakeFiles/n-queen.dir/build
-.PHONY : n-queen/fast
+test_linkedlist/fast:
+	$(MAKE) -f CMakeFiles/test_linkedlist.dir/build.make CMakeFiles/test_linkedlist.dir/build
+.PHONY : test_linkedlist/fast
 
 #=============================================================================
-# Target rules for targets named test_graph
+# Target rules for targets named test_undirectedgraph
 
 # Build rule for target.
-test_graph: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_graph
-.PHONY : test_graph
+test_undirectedgraph: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_undirectedgraph
+.PHONY : test_undirectedgraph
 
 # fast build rule for target.
-test_graph/fast:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/build
-.PHONY : test_graph/fast
+test_undirectedgraph/fast:
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/build
+.PHONY : test_undirectedgraph/fast
 
-backtracking/n-queen.o: backtracking/n-queen.cpp.o
+#=============================================================================
+# Target rules for targets named test_directedgraph
 
-.PHONY : backtracking/n-queen.o
+# Build rule for target.
+test_directedgraph: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_directedgraph
+.PHONY : test_directedgraph
+
+# fast build rule for target.
+test_directedgraph/fast:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/build
+.PHONY : test_directedgraph/fast
+
+LinkedList/test_linkedlist.o: LinkedList/test_linkedlist.cpp.o
+
+.PHONY : LinkedList/test_linkedlist.o
 
 # target to build an object file
-backtracking/n-queen.cpp.o:
-	$(MAKE) -f CMakeFiles/n-queen.dir/build.make CMakeFiles/n-queen.dir/backtracking/n-queen.cpp.o
-.PHONY : backtracking/n-queen.cpp.o
+LinkedList/test_linkedlist.cpp.o:
+	$(MAKE) -f CMakeFiles/test_linkedlist.dir/build.make CMakeFiles/test_linkedlist.dir/LinkedList/test_linkedlist.cpp.o
+.PHONY : LinkedList/test_linkedlist.cpp.o
 
-backtracking/n-queen.i: backtracking/n-queen.cpp.i
+LinkedList/test_linkedlist.i: LinkedList/test_linkedlist.cpp.i
 
-.PHONY : backtracking/n-queen.i
+.PHONY : LinkedList/test_linkedlist.i
 
 # target to preprocess a source file
-backtracking/n-queen.cpp.i:
-	$(MAKE) -f CMakeFiles/n-queen.dir/build.make CMakeFiles/n-queen.dir/backtracking/n-queen.cpp.i
-.PHONY : backtracking/n-queen.cpp.i
+LinkedList/test_linkedlist.cpp.i:
+	$(MAKE) -f CMakeFiles/test_linkedlist.dir/build.make CMakeFiles/test_linkedlist.dir/LinkedList/test_linkedlist.cpp.i
+.PHONY : LinkedList/test_linkedlist.cpp.i
 
-backtracking/n-queen.s: backtracking/n-queen.cpp.s
+LinkedList/test_linkedlist.s: LinkedList/test_linkedlist.cpp.s
 
-.PHONY : backtracking/n-queen.s
+.PHONY : LinkedList/test_linkedlist.s
 
 # target to generate assembly for a file
-backtracking/n-queen.cpp.s:
-	$(MAKE) -f CMakeFiles/n-queen.dir/build.make CMakeFiles/n-queen.dir/backtracking/n-queen.cpp.s
-.PHONY : backtracking/n-queen.cpp.s
+LinkedList/test_linkedlist.cpp.s:
+	$(MAKE) -f CMakeFiles/test_linkedlist.dir/build.make CMakeFiles/test_linkedlist.dir/LinkedList/test_linkedlist.cpp.s
+.PHONY : LinkedList/test_linkedlist.cpp.s
+
+graph/DirectedGraph.o: graph/DirectedGraph.cpp.o
+
+.PHONY : graph/DirectedGraph.o
+
+# target to build an object file
+graph/DirectedGraph.cpp.o:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/DirectedGraph.cpp.o
+.PHONY : graph/DirectedGraph.cpp.o
+
+graph/DirectedGraph.i: graph/DirectedGraph.cpp.i
+
+.PHONY : graph/DirectedGraph.i
+
+# target to preprocess a source file
+graph/DirectedGraph.cpp.i:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/DirectedGraph.cpp.i
+.PHONY : graph/DirectedGraph.cpp.i
+
+graph/DirectedGraph.s: graph/DirectedGraph.cpp.s
+
+.PHONY : graph/DirectedGraph.s
+
+# target to generate assembly for a file
+graph/DirectedGraph.cpp.s:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/DirectedGraph.cpp.s
+.PHONY : graph/DirectedGraph.cpp.s
 
 graph/UndirectedGraph.o: graph/UndirectedGraph.cpp.o
 
@@ -169,7 +220,7 @@ graph/UndirectedGraph.o: graph/UndirectedGraph.cpp.o
 
 # target to build an object file
 graph/UndirectedGraph.cpp.o:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/UndirectedGraph.cpp.o
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/UndirectedGraph.cpp.o
 .PHONY : graph/UndirectedGraph.cpp.o
 
 graph/UndirectedGraph.i: graph/UndirectedGraph.cpp.i
@@ -178,7 +229,7 @@ graph/UndirectedGraph.i: graph/UndirectedGraph.cpp.i
 
 # target to preprocess a source file
 graph/UndirectedGraph.cpp.i:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/UndirectedGraph.cpp.i
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/UndirectedGraph.cpp.i
 .PHONY : graph/UndirectedGraph.cpp.i
 
 graph/UndirectedGraph.s: graph/UndirectedGraph.cpp.s
@@ -187,8 +238,35 @@ graph/UndirectedGraph.s: graph/UndirectedGraph.cpp.s
 
 # target to generate assembly for a file
 graph/UndirectedGraph.cpp.s:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/UndirectedGraph.cpp.s
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/UndirectedGraph.cpp.s
 .PHONY : graph/UndirectedGraph.cpp.s
+
+graph/test_directedgraph.o: graph/test_directedgraph.cpp.o
+
+.PHONY : graph/test_directedgraph.o
+
+# target to build an object file
+graph/test_directedgraph.cpp.o:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/test_directedgraph.cpp.o
+.PHONY : graph/test_directedgraph.cpp.o
+
+graph/test_directedgraph.i: graph/test_directedgraph.cpp.i
+
+.PHONY : graph/test_directedgraph.i
+
+# target to preprocess a source file
+graph/test_directedgraph.cpp.i:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/test_directedgraph.cpp.i
+.PHONY : graph/test_directedgraph.cpp.i
+
+graph/test_directedgraph.s: graph/test_directedgraph.cpp.s
+
+.PHONY : graph/test_directedgraph.s
+
+# target to generate assembly for a file
+graph/test_directedgraph.cpp.s:
+	$(MAKE) -f CMakeFiles/test_directedgraph.dir/build.make CMakeFiles/test_directedgraph.dir/graph/test_directedgraph.cpp.s
+.PHONY : graph/test_directedgraph.cpp.s
 
 graph/test_undirectedgraph.o: graph/test_undirectedgraph.cpp.o
 
@@ -196,7 +274,7 @@ graph/test_undirectedgraph.o: graph/test_undirectedgraph.cpp.o
 
 # target to build an object file
 graph/test_undirectedgraph.cpp.o:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/test_undirectedgraph.cpp.o
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/test_undirectedgraph.cpp.o
 .PHONY : graph/test_undirectedgraph.cpp.o
 
 graph/test_undirectedgraph.i: graph/test_undirectedgraph.cpp.i
@@ -205,7 +283,7 @@ graph/test_undirectedgraph.i: graph/test_undirectedgraph.cpp.i
 
 # target to preprocess a source file
 graph/test_undirectedgraph.cpp.i:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/test_undirectedgraph.cpp.i
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/test_undirectedgraph.cpp.i
 .PHONY : graph/test_undirectedgraph.cpp.i
 
 graph/test_undirectedgraph.s: graph/test_undirectedgraph.cpp.s
@@ -214,7 +292,7 @@ graph/test_undirectedgraph.s: graph/test_undirectedgraph.cpp.s
 
 # target to generate assembly for a file
 graph/test_undirectedgraph.cpp.s:
-	$(MAKE) -f CMakeFiles/test_graph.dir/build.make CMakeFiles/test_graph.dir/graph/test_undirectedgraph.cpp.s
+	$(MAKE) -f CMakeFiles/test_undirectedgraph.dir/build.make CMakeFiles/test_undirectedgraph.dir/graph/test_undirectedgraph.cpp.s
 .PHONY : graph/test_undirectedgraph.cpp.s
 
 # Help Target
@@ -224,15 +302,23 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test"
 	@echo "... edit_cache"
-	@echo "... n-queen"
-	@echo "... test_graph"
-	@echo "... backtracking/n-queen.o"
-	@echo "... backtracking/n-queen.i"
-	@echo "... backtracking/n-queen.s"
+	@echo "... test_linkedlist"
+	@echo "... test_undirectedgraph"
+	@echo "... test_directedgraph"
+	@echo "... LinkedList/test_linkedlist.o"
+	@echo "... LinkedList/test_linkedlist.i"
+	@echo "... LinkedList/test_linkedlist.s"
+	@echo "... graph/DirectedGraph.o"
+	@echo "... graph/DirectedGraph.i"
+	@echo "... graph/DirectedGraph.s"
 	@echo "... graph/UndirectedGraph.o"
 	@echo "... graph/UndirectedGraph.i"
 	@echo "... graph/UndirectedGraph.s"
+	@echo "... graph/test_directedgraph.o"
+	@echo "... graph/test_directedgraph.i"
+	@echo "... graph/test_directedgraph.s"
 	@echo "... graph/test_undirectedgraph.o"
 	@echo "... graph/test_undirectedgraph.i"
 	@echo "... graph/test_undirectedgraph.s"
