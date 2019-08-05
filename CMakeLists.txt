@@ -16,9 +16,19 @@ add_executable(test_directedgraph graph/test_directedgraph.cpp graph/DirectedGra
 target_link_libraries(test_directedgraph ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_directedgraph ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_linkedlist LinkedList/test_linkedlist.cpp LinkedList/LinkedList.cpp)
+target_link_libraries(test_linkedlist ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_linkedlist ${CMAKE_THREAD_LIBS_INIT})
+
+add_executable(test_avltree Trees/AvlTree.cpp Trees/test_avltree.cpp)
+target_link_libraries(test_avltree ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_avltree ${CMAKE_THREAD_LIBS_INIT})
 
 add_test(Test test_undirectedgraph)
 add_test(Test test_directedgraph)
+add_test(Test test_linkedlist)
+add_test(Test test_avltree)
 enable_testing()
 
-add_executable(test_linkedlist LinkedList/test_linkedlist.cpp)
+add_executable(class-schedule greedy/class-schedule.cpp)
+add_executable(markovian-chain The-Practice-Of-Programming/markovian-chain.cpp)

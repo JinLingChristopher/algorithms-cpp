@@ -5,8 +5,11 @@
 #ifndef ALGORITHM_CPP_LISTNODE_HPP
 #define ALGORITHM_CPP_LISTNODE_HPP
 
+#include <iostream>
+
 class LinkedList{
 private:
+    friend std::ostream& operator<<(std::ostream& os, const LinkedList& t);
     class ListNode {
         private:
             int val;
@@ -21,6 +24,10 @@ private:
                 return this->next;
             }
 
+            int getVal() {
+                return this->val;
+            }
+
             void setNext(ListNode* other) {
                 this->next = other;
             }
@@ -33,17 +40,25 @@ private:
     ListNode* head;
     int length;
 
+    ListNode* getHead() const {
+        return this->head;
+    }
+
 public:
     LinkedList(): head(nullptr), length(0) {
 
     }
 
+    int getLength() {
+        return this->length;
+    }
+
     ~LinkedList() {
-        ListNode* t = this->head;
-        while (this->head) {
-            t = t->getNext();
-            delete this->head;
-            this->head = t;
+        ListNode* t = nullptr;
+        while (head) {
+            t = head->getNext();
+            delete head;
+            head = t;
             --length;
         }
     }
@@ -55,6 +70,15 @@ public:
         ++length;
     }
 
+    void removeFirst() {
+        ListNode* t = head;
+        head = head->getNext();
+        delete t;
+        --length;
+    }
+
 };
+
+std::ostream& operator<<(std::ostream& os, const LinkedList& t);
 
 #endif //ALGORITHM_CPP_LISTNODE_HPP

@@ -2,21 +2,32 @@
 // Created by king on 2019/8/2.
 //
 
-#include <iostream>
+#include "gtest/gtest.h"
 #include "LinkedList.hpp"
-
 
 using namespace std;
 
+TEST(LinkedList, basic) {
+    LinkedList l;
+    EXPECT_EQ(l.getLength(), 0);
 
-int main() {
-    LinkedList t;
-    t.insert(6);
-    t.insert(1);
-    t.insert(0);
-    t.insert(0);
-    t.insert(1);
-    t.insert(5);
+    l.insert(1);
+    EXPECT_EQ(l.getLength(), 1);
+    cout << l << endl;
 
-    return 0;
+    l.insert(2);
+    EXPECT_EQ(l.getLength(), 2);
+    cout << l << endl;
+
+    l.insert(3);
+    EXPECT_EQ(l.getLength(), 3);
+    cout << l << endl;
+
+    l.removeFirst();
+    EXPECT_EQ(l.getLength(), 2);
+    cout << l << endl;
+
+    l.removeFirst();
+    EXPECT_EQ(l.getLength(), 1);
+    cout << l << endl;
 }
