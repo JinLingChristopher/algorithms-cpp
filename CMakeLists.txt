@@ -24,11 +24,16 @@ add_executable(test_avltree Trees/AvlTree.cpp Trees/test_avltree.cpp)
 target_link_libraries(test_avltree ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_avltree ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_undirectedgraphsearch graph/UndirectedGraphSearch.cpp graph/test_UndirectedGraphSearch.cpp)
+target_link_libraries(test_undirectedgraphsearch ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_undirectedgraphsearch ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_undirectedgraph)
 add_test(Test test_directedgraph)
 add_test(Test test_linkedlist)
 add_test(Test test_avltree)
+add_test(Test test_undirectedgraphsearch)
 enable_testing()
 
 add_executable(class-schedule greedy/class-schedule.cpp)
-add_executable(markovian-chain The-Practice-Of-Programming/markovian-chain.cpp)
+add_executable(huffman-code greedy/huffman-code.cpp)

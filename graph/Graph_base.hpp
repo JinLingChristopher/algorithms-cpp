@@ -12,19 +12,41 @@
 
 class Graph_base {
 private:
-    const int V;
-
+    int V;
 
 protected:
     int E;
     std::vector<std::set<int>> adj;
+
 public:
+
+    Graph_base() = delete;
 
     Graph_base(int v): V(v), E(0) {
         std::cout << "Graph_base(int v) called" << std::endl;
+
+        if (v <= 0) {
+            throw std::invalid_argument("number of vertices should always be positive");
+        }
+
         for (int i = 0; i < v; ++i) {
             adj.push_back(std::set<int>());
         }
+    }
+
+    Graph_base(const Graph_base& rhs):V(rhs.V), E(rhs.E), adj(rhs.adj) {
+        std::cout << "Graph_base(const Graph_base& rhs) called" << std::endl;
+    }
+
+    Graph_base& operator=(const Graph_base& rhs) {
+        std::cout << "Graph_base& operator=(const Graph_base& rhs) called" << std::endl;
+
+        if (this != &rhs) {
+            this->V = rhs.V;
+            this->E = rhs.E;
+            this->adj = rhs.adj;
+        }
+        return *this;
     }
 
     virtual ~Graph_base() {

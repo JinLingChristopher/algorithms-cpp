@@ -21,8 +21,16 @@ private:
     friend std::ostream& operator<<(std::ostream& os, const UndirectedGraph& g);
 
 public:
+
+    UndirectedGraph() = delete;
+
     UndirectedGraph(int v): Graph_base(v) {
         std::cout << "UndirectedGraph(int v) called" << std::endl;
+    }
+
+    UndirectedGraph(const UndirectedGraph& rhs):Graph_base(rhs) {
+        std::cout << "Undirected(const UndirectedGraph& rhs) called" << std::endl;
+
     }
 
     ~UndirectedGraph() {
@@ -34,7 +42,6 @@ public:
         adj[w].insert(v);
         ++this->E;
     }
-
 };
 
 std::ostream& operator<<(std::ostream& os, const UndirectedGraph& g);
