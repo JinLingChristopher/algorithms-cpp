@@ -18,11 +18,20 @@ private:
         marked = std::vector<bool>(graph.numOfVertices(), false);
     }
 
+    void validateVertex(int v) {
+        if (v < 0 || v >= graph.numOfVertices()) {
+            throw std::invalid_argument("v is not valid vertex");
+        }
+    }
+
+    int recursiveDFSWithOrder_helper(int s, int clock, std::vector<int>& prev, std::vector<int>& post);
+
 public:
     DepthFirstSearch(const Graph_base& g):graph(g) {
         clearMarked();
     }
 
+    void recursiveDFSWithOrder(int s);
 
 };
 

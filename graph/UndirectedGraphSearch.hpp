@@ -13,11 +13,7 @@ private:
     UndirectedGraph graph;
     std::vector<bool> marked;
 
-    void validateVertex(int v) {
-        if (v < 0 || v >= graph.numOfVertices()) {
-            throw std::invalid_argument("v is not valid vertex");
-        }
-    }
+
 
     void clearMarked() {
         marked = std::vector<bool>(graph.numOfVertices(), false);
