@@ -23,10 +23,19 @@ private:
         marked = std::vector<bool>(graph.numOfVertices(), false);
     }
 
+    void recursiveDFS_helper(int s);
+
+    int recursiveDFSWithOrder_helper(int s, int* clock, std::vector<int>& prev, std::vector<int>& post);
+
 public:
 
     UndirectedGraphSearch(const UndirectedGraph& g):graph(g) {
+        std::cout << "UndirectedGraphSearch(const UndirectedGraph& g) called" << std::endl;
         clearMarked();
+    }
+
+    ~UndirectedGraphSearch() {
+        std::cout <<"~UndirectedGraphSearch() called" << std::endl;
     }
 
     void RecursiveDFS(int s);
@@ -37,6 +46,8 @@ public:
     void IterativeDFSAll();
 
     int countComponent();
+
+    void recursiveDFSWithOrder(int s);
 
 };
 
