@@ -16,10 +16,22 @@ private:
     std::vector<bool> marked;
 
     void clearMarked() {
-        marked = std::vector<int>(graph.numOfVertices(), false);
+        marked = std::vector<bool>(graph.numOfVertices(), false);
+    }
+
+    void validateVertex(int s) {
+        if (s < 0 || s >= graph.numOfVertices()) {
+            throw std::invalid_argument("v is not valid vertex");
+        }
     }
 
 public:
+    BreathFirstSearch(const Graph_base& g): graph(g) {
+        std::cout << "BreathFirstSearch(const Graph_base& g) called" << std::endl;
+        clearMarked();
+    }
+
+    void iterativeBFS(int s);
 
 };
 
