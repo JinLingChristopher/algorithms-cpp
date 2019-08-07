@@ -13,9 +13,15 @@ class DepthFirstSearch {
 private:
     const Graph_base& graph;
     std::vector<bool> marked;
+    std::vector<int> prev;
+    std::vector<int> post;
+    std::vector<int> parent;
 
     void clearMarked() {
         marked = std::vector<bool>(graph.numOfVertices(), false);
+        prev = std::vector<int>(graph.numOfVertices(), -1);
+        post = std::vector<int>(graph.numOfVertices(), -1);
+        parent = std::vector<int>(graph.numOfVertices(), -1);
     }
 
     void validateVertex(int v) {
@@ -24,12 +30,19 @@ private:
         }
     }
 
+    void recursiveDFS_helper(int s);
+
     int recursiveDFSWithOrder_helper(int s, int clock, std::vector<int>& prev, std::vector<int>& post);
 
 public:
     DepthFirstSearch(const Graph_base& g):graph(g) {
         clearMarked();
     }
+
+    void iterativeDFS(int s);
+
+    void recursiveDFS(int s);
+
 
     void recursiveDFSWithOrder(int s);
 
