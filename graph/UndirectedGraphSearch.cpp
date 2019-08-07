@@ -72,15 +72,3 @@ void UndirectedGraphSearch::IterativeDFSAll() {
     }
 }
 
-int UndirectedGraphSearch::countComponent() {
-    int counter = 0;
-    for (int i = 0; i < marked.size(); ++i) {
-        if (!marked[i]) {
-            counter += 1;
-            IterativeDFS(i);
-        }
-    }
-
-    return counter;
-}
-

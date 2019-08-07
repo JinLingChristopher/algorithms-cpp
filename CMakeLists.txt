@@ -32,6 +32,10 @@ add_executable(test_DepthFirstSearch graph/DepthFirstSearch.cpp graph/test_Depth
 target_link_libraries(test_DepthFirstSearch ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_DepthFirstSearch ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_BreathFirstSearch graph/BreathFirstSearch.cpp graph/test_BreathFirstSearch.cpp)
+target_link_libraries(test_BreathFirstSearch ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_BreathFirstSearch ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_undirectedgraph)
 add_test(Test test_directedgraph)
 add_test(Test test_linkedlist)
@@ -39,6 +43,7 @@ add_test(Test test_avltree)
 add_test(Test test_undirectedgraphsearch)
 
 add_test(Test test_DepthFirstSearch)
+add_test(Test test_BreathFirstSearch)
 
 enable_testing()
 

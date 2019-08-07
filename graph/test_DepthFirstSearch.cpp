@@ -71,15 +71,15 @@ TEST(DepthFirstSearch, DirectedGraph) {
     solver.iterativeDFS(5);
 
     solver.recursiveDFS(5);
+
+    solver.recursiveDFSWithOrder(5);
+
+    solver.recursiveDFSWithOrderAll();
 }
 
-//
-//TEST(UndirectedGraphSearch, RecursiveDFS) {
-//    UndirectedGraph g = build_graph();
-//    UndirectedGraphSearch solver(g);
-//
-//    EXPECT_EQ(solver.countComponent(), 2);
-//
-//    solver.recursiveDFSWithOrder(0);
-//
-//}
+TEST(DepthFirstSearch, UndirectedGraph) {
+    const UndirectedGraph& g = buildUndirectedGraph();
+    DepthFirstSearch solver(g);
+
+    EXPECT_EQ(solver.countComponent(), 2);
+}
