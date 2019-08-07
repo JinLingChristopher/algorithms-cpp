@@ -8,7 +8,7 @@ find_package(Threads REQUIRED)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(test_undirectedgraph graph/test_undirectedgraph.cpp graph/UndirectedGraph.cpp)
+add_executable(test_undirectedgraph graph/UndirectedGraph.cpp)
 target_link_libraries(test_undirectedgraph ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_undirectedgraph ${CMAKE_THREAD_LIBS_INIT})
 
@@ -24,10 +24,6 @@ add_executable(test_avltree Trees/AvlTree.cpp Trees/test_avltree.cpp)
 target_link_libraries(test_avltree ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_avltree ${CMAKE_THREAD_LIBS_INIT})
 
-add_executable(test_undirectedgraphsearch graph/UndirectedGraphSearch.cpp graph/test_UndirectedGraphSearch.cpp)
-target_link_libraries(test_undirectedgraphsearch ${GTEST_BOTH_LIBRARIES})
-target_link_libraries(test_undirectedgraphsearch ${CMAKE_THREAD_LIBS_INIT})
-
 add_executable(test_DepthFirstSearch graph/DepthFirstSearch.cpp graph/test_DepthFirstSearch.cpp)
 target_link_libraries(test_DepthFirstSearch ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_DepthFirstSearch ${CMAKE_THREAD_LIBS_INIT})
@@ -40,7 +36,6 @@ add_test(Test test_undirectedgraph)
 add_test(Test test_directedgraph)
 add_test(Test test_linkedlist)
 add_test(Test test_avltree)
-add_test(Test test_undirectedgraphsearch)
 
 add_test(Test test_DepthFirstSearch)
 add_test(Test test_BreathFirstSearch)
