@@ -18,22 +18,15 @@ class DetectCycle {
 private:
     const Graph_base& graph;
 
-    std::vector<STATUS> status;
-
-    void clearStatus() {
-        status = std::vector<STATUS>(graph.numOfVertices(), STATUS::NEW);
-    }
-
-    bool isAcyclicDFS(int v);
+    bool isAcyclicDFS(int v, std::vector<STATUS>& status);
 
 public:
+
     DetectCycle(const Graph_base& g):graph(g) {
-        clearStatus();
         std::cout << "DetectCycle (const Graph_base&) called" << std::endl;
     }
 
     bool isAcyclic();
-
 };
 
 

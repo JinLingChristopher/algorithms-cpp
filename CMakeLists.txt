@@ -36,6 +36,10 @@ add_executable(test_DetectCycle graph/DetectCycle.cpp graph/test_DetectCycle.cpp
 target_link_libraries(test_DetectCycle ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_DetectCycle ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_TopologicalSort graph/TopologicalSort.cpp graph/DetectCycle.cpp graph/test_TopologicalSort.cpp)
+target_link_libraries(test_TopologicalSort ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_TopologicalSort ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_undirectedgraph)
 add_test(Test test_directedgraph)
 add_test(Test test_linkedlist)
@@ -44,6 +48,7 @@ add_test(Test test_avltree)
 add_test(Test test_DepthFirstSearch)
 add_test(Test test_BreathFirstSearch)
 add_test(Test test_DetectCycle)
+add_test(Test test_TopologicalSort)
 
 enable_testing()
 
