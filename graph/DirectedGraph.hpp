@@ -15,19 +15,19 @@ private:
 
 public:
     DirectedGraph(int v): Graph_base(v) {
-        std::cout << "DirectedGraph called()" << std::endl;
+        std::cout << "DirectedGraph() called" << std::endl;
     }
 
     ~DirectedGraph() {
-        std::cout << "~DirectedGraph called()" << std::endl;
+        std::cout << "~DirectedGraph() called" << std::endl;
     }
 
     void addEdges(int from, int to) {
         if (from >= this->numOfVertices()) {
-            // todo: abort the program
+            throw std::invalid_argument("argument from is invalid");
         }
         if (to >= this->numOfVertices()) {
-            // todo: abort the program
+            throw std::invalid_argument("argument to is invalid");
         }
         adj[from].insert(to);
         ++this->E;
