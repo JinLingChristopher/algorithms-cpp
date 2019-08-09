@@ -29,26 +29,26 @@ void DepthFirstSearch::iterativeDFS(int s) {
     cout << endl;
 }
 
-void DepthFirstSearch::recursiveDFS_helper(int s) {
+void DepthFirstSearch::recursiveDFSHelper(int s) {
     validateVertex(s);
     if (!marked[s]) {
         marked[s] = true;
         // cout << s << " ";
         for (const auto w: graph.getAdj(s)) {
-            recursiveDFS_helper(w);
+            recursiveDFSHelper(w);
         }
     }
 }
 void DepthFirstSearch::recursiveDFS(int s) {
     clearMarked();
-    recursiveDFS_helper(s);
+    recursiveDFSHelper(s);
 }
 
 void DepthFirstSearch::dfsAll() {
     clearMarked();
     for (int i = 0; i < marked.size(); ++i) {
         if (!marked[i]) {
-            recursiveDFS_helper(i);
+            recursiveDFSHelper(i);
         }
     }
 }
@@ -65,14 +65,14 @@ int DepthFirstSearch::countComponent() {
     return counter;
 }
 
-int DepthFirstSearch::recursiveDFSWithOrder_helper(int s, int clock, std::vector<int> &prev, std::vector<int> &post, std::vector<int>& parent) {
+int DepthFirstSearch::recursiveDFSWithOrderHelper(int s, int clock, std::vector<int> &prev, std::vector<int> &post, std::vector<int>& parent) {
     marked[s] = true;
     clock += 1;
     prev[s] = clock;
     for (const auto w: graph.getAdj(s)) {
         if (!marked[w]) {
             parent[w] = s;
-            clock = recursiveDFSWithOrder_helper(w, clock, prev, post, parent);
+            clock = recursiveDFSWithOrderHelper(w, clock, prev, post, parent);
         }
     }
     clock += 1;
@@ -87,7 +87,7 @@ void DepthFirstSearch::recursiveDFSWithOrder(int s) {
     std::vector<int> prev(graph.numOfVertices(), -1);
     std::vector<int> post(graph.numOfVertices(), -1);
     std::vector<int> parent(graph.numOfVertices(), -1);
-    recursiveDFSWithOrder_helper(s, clock, prev, post, parent);
+    recursiveDFSWithOrderHelper(s, clock, prev, post, parent);
 
     std::cout << "prev: ";
     printVector(prev);
@@ -108,7 +108,7 @@ void DepthFirstSearch::recursiveDFSWithOrderAll() {
 
     for (int i = 0; i < marked.size(); ++i) {
         if (!marked[i]) {
-            clock = recursiveDFSWithOrder_helper(i, clock, prev, post, parent);
+            clock = recursiveDFSWithOrderHelper(i, clock, prev, post, parent);
         }
     }
     std::cout << "prev: ";

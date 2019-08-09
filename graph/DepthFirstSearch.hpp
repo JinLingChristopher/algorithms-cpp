@@ -37,9 +37,9 @@ private:
         }
     }
 
-    void recursiveDFS_helper(int s);
+    void recursiveDFSHelper(int s);
 
-    int recursiveDFSWithOrder_helper(int s, int clock, std::vector<int>& prev, std::vector<int>& post, std::vector<int>& parent);
+    int recursiveDFSWithOrderHelper(int s, int clock, std::vector<int>& prev, std::vector<int>& post, std::vector<int>& parent);
 
 public:
     DepthFirstSearch(const Graph_base& g):graph(g) {

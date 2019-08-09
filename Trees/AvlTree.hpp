@@ -6,10 +6,11 @@
 #define ALGORITHM_CPP_AVLTREE_HPP
 
 class TreeNode {
-private:
-    int val;
-    TreeNode* left, right;
 public:
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+
     TreeNode(int n):val(n), left(nullptr), right(nullptr) {
 
     }
@@ -18,23 +19,16 @@ public:
 class AVLTree{
 private:
     TreeNode* root;
+
+    TreeNode* insert(TreeNode* x, int val);
+
 public:
-    AVLTree() {
+    AVLTree():root(nullptr) {
 
     }
 
-    TreeNode* insert(int v) {
-        TreeNode* t = new TreeNode(v);
-        if (!root) {
-            root = t;
-        } else if (v == root->val) {
+    void insert(int val);
 
-        } else if (v < root->val) {
-            root->left = nullptr;
-        } else {
-            root->right = nullptr;
-        }
-    }
 };
 
 #endif //ALGORITHM_CPP_AVLTREE_HPP
