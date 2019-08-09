@@ -36,3 +36,30 @@ std::vector<int> TopologicalSort::topologicalSort() {
     }
     return sorted;
 }
+
+void TopologicalSort::postProcessDFS(int v, std::vector<bool> &marked, std::vector<STATUS> &status) {
+    status[v] = STATUS::ACTIVE;
+    for (const auto item: graph.getAdj(v)) {
+        if (status[item] == STATUS::NEW) {
+            postProcessDFS(item, marked, status);
+        }
+    }
+    status[v] = STATUS::FINISHED;
+    // process(v);    // process: some function that related to v, process in reversed topological order.
+}
+
+void TopologicalSort::postProcess() {
+    DetectCycle detector(graph);
+    if (!detector.isAcyclic()) {
+        std::cout << "The given graph is not a dag, no topologicalsort" << std::endl;
+        return;
+    }
+
+    std::vector<STATUS> status(graph.numOfVertices(), STATUS::NEW);
+    std::vector<bool> marked(graph.numOfVertices(), false);
+    for (int i = 0; i < graph.numOfVertices(); ++i) {
+        if (!marked[i]) {
+            postProcessDFS(i, marked, status);
+        }
+    }
+}

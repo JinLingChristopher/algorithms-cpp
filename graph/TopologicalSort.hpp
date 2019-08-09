@@ -14,6 +14,7 @@ private:
     const Graph_base& graph;
 
     int topologicalSortDFS(int v, int clock, std::vector<STATUS>& status, std::vector<int>& sorted);
+    void postProcessDFS(int v, std::vector<bool>& marked, std::vector<STATUS>& status);
 
 public:
     TopologicalSort(const Graph_base& g): graph(g) {
@@ -21,6 +22,7 @@ public:
     }
 
     std::vector<int> topologicalSort();
+    void postProcess();
 };
 
 
