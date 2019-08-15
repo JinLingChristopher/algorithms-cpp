@@ -50,6 +50,34 @@ public:
         }
         throw std::invalid_argument("argument vertex is invalid");
     }
+
+    bool operator==(const Edge& other) const {
+        bool from = this->from == other.from;
+        bool to = this->to == other.to;
+        bool weight = this->weight == other.weight;
+
+        return from && to && weight;
+    }
+
+    bool operator!=(const Edge& other) const {
+        return !(*this == other);
+    }
+
+    bool operator<(const Edge& other) const {
+        bool from = this->from < other.from;
+        bool to = this->to < other.to;
+        bool weight = this->weight < other.weight;
+
+        if (from) {            /* order matters here. */
+            return true;
+        } else if (to) {
+            return true;
+        } else if (weight) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 };
 
 

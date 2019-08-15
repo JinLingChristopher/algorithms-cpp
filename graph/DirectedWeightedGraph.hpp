@@ -40,6 +40,7 @@ public:
     void addEdge(int from, int to, int weight) {
         Edge e(from, to, weight);
         adjs[from].insert(e);
+        ++this->E;
     }
 
     int numOfEdges() const {
