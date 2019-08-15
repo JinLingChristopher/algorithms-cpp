@@ -3,9 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "DirectedWeightedGraph.hpp"
-
-using namespace std;
+#include "ShortestPath.hpp"
 
 const DirectedWeightedGraph buildWeightedGraphNoNegative() {
     DirectedWeightedGraph g(7);
@@ -25,9 +23,17 @@ const DirectedWeightedGraph buildWeightedGraphNoNegative() {
     return g;
 }
 
-TEST(DirectedWeightedGraph, basic) {
+TEST(ShortestPath, dijkstra) {
     auto graph = buildWeightedGraphNoNegative();
-    EXPECT_EQ(graph.numOfVertices(), 7);
-    EXPECT_EQ(graph.numOfEdges(), 12);
-}
+    ShortestPath solver(graph);
+    solver.dijkstra(0);
 
+    std::vector<int> expected{0, 14, 3, 4, 4, 9, 7};
+    auto result = solver.getDist();
+    EXPECT_EQ(result, expected);
+
+    for (auto iter = result.cbegin(); iter != result.cend(); ++iter) {
+        std::cout << *iter << " ";
+    }
+    std::cout << std::endl;
+}

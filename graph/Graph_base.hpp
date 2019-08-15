@@ -63,7 +63,7 @@ public:
 
     virtual void addEdges(int v, int w) = 0;
 
-    const int degree(int v) const {
+    const int outDegree(int v) const {
         return adjs[v].size();
     }
 

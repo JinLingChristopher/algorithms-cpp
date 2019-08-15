@@ -8,7 +8,6 @@
 
 #include <vector>
 #include <set>
-#include "DirectedWeightedGraph.hpp"
 #include "Edge.hpp"
 
 
@@ -47,12 +46,20 @@ public:
         return this->E;
     }
 
-    int degree(int v) {
+    int outDegree(int v) {
         return adjs[v].size();
     }
 
     const std::set<Edge>& getAdj(int v) const {
         return adjs[v];
+    }
+
+    const Edge& getEdge(int u, int v) const {
+        for (const auto& item: getAdj(u)) {
+            if (item.getTo() == v) {
+                return item;
+            }
+        }
     }
 
 };

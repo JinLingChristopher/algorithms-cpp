@@ -44,6 +44,10 @@ add_executable(test_DirectedWeightedGraph graph/test_DirectedWeightedGraph.cpp g
 target_link_libraries(test_DirectedWeightedGraph ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_DirectedWeightedGraph ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_ShortestPath graph/ShortestPath.cpp graph/test_ShortestPath.cpp graph/DirectedWeightedGraph.cpp)
+target_link_libraries(test_ShortestPath ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_ShortestPath ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_UndirectedGraph)
 add_test(Test test_DirectedGraph)
 add_test(Test test_linkedlist)
@@ -54,6 +58,7 @@ add_test(Test test_DetectCycle)
 add_test(Test test_TopologicalSort)
 add_test(Test test_Edge)
 add_test(Test test_DirectedWeightedGraph)
+add_test(Test test_ShortestPath)
 
 enable_testing()
 

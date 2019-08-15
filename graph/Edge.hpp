@@ -19,7 +19,7 @@ public:
     Edge() = delete;
 
     Edge(int v, int w, double weight){
-        std::cout << "Edge(int v, int w, double weight) called" << std::endl;
+        // std::cout << "Edge(int v, int w, double weight) called" << std::endl;
         if (v < 0) {
             throw std::invalid_argument("argument v is invalid");
         } else if (w < 0) {
@@ -32,6 +32,14 @@ public:
 
     Edge(const Edge& other):from(other.from), to(other.to), weight(other.weight) {
         std::cout << "Edge(const Edge& other) called" << std::endl;
+    }
+
+    Edge(Edge&& other) noexcept : from(std::move(other.from)), to(std::move(other.to)), weight(std::move(other.weight)) {
+        std::cout << "Edge(const Edge&& other) called" << std::endl;
+    }
+
+    ~Edge() {
+        std::cout << "~Edge() called" << std::endl;
     }
 
     int getWeight() const {
@@ -49,6 +57,10 @@ public:
             return from;
         }
         throw std::invalid_argument("argument vertex is invalid");
+    }
+
+    int getTo() const {
+        return to;
     }
 
     bool operator==(const Edge& other) const {
