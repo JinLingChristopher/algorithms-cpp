@@ -16,7 +16,7 @@ private:
 
 protected:
     int E;
-    std::vector<std::set<int>> adj;
+    std::vector<std::set<int>> adjs;
 
 public:
 
@@ -30,11 +30,11 @@ public:
         }
 
         for (int i = 0; i < v; ++i) {
-            adj.push_back(std::set<int>());
+            adjs.push_back(std::set<int>());
         }
     }
 
-    Graph_base(const Graph_base& rhs):V(rhs.V), E(rhs.E), adj(rhs.adj) {
+    Graph_base(const Graph_base& rhs):V(rhs.V), E(rhs.E), adjs(rhs.adjs) {
         std::cout << "Graph_base(const Graph_base& rhs) called" << std::endl;
     }
 
@@ -44,7 +44,7 @@ public:
         if (this != &rhs) {
             this->V = rhs.V;
             this->E = rhs.E;
-            this->adj = rhs.adj;
+            this->adjs = rhs.adjs;
         }
         return *this;
     }
@@ -53,25 +53,24 @@ public:
         std::cout << "~Graph_base() called" << std::endl;
     }
 
-    int numOfVertices() const {
+    const int numOfVertices() const {
         return this->V;
     }
 
-    int numOfEdges() const {
+    const int numOfEdges() const {
         return this->E;
     }
 
     virtual void addEdges(int v, int w) = 0;
 
-    int degree(int v) {
-        return adj[v].size();
+    const int degree(int v) const {
+        return adjs[v].size();
     }
 
-    std::set<int> getAdj(int v) const {
-        return adj[v];
+    const std::set<int>& getAdj(int v) const {
+        return adjs[v];
     }
 
 };
-
 
 #endif //ALGORITHM_CPP_GRAPH_BASE_HPP

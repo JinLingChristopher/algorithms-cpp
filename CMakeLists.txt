@@ -8,21 +8,17 @@ find_package(Threads REQUIRED)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(test_undirectedgraph graph/UndirectedGraph.cpp)
-target_link_libraries(test_undirectedgraph ${GTEST_BOTH_LIBRARIES})
-target_link_libraries(test_undirectedgraph ${CMAKE_THREAD_LIBS_INIT})
+add_executable(test_UndirectedGraph graph/test_UndirectedGraph.cpp graph/UndirectedGraph.cpp)
+target_link_libraries(test_UndirectedGraph ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_UndirectedGraph ${CMAKE_THREAD_LIBS_INIT})
 
-add_executable(test_directedgraph graph/test_directedgraph.cpp graph/DirectedGraph.cpp)
-target_link_libraries(test_directedgraph ${GTEST_BOTH_LIBRARIES})
-target_link_libraries(test_directedgraph ${CMAKE_THREAD_LIBS_INIT})
+add_executable(test_DirectedGraph graph/test_DirectedGraph.cpp graph/DirectedGraph.cpp)
+target_link_libraries(test_DirectedGraph ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_DirectedGraph ${CMAKE_THREAD_LIBS_INIT})
 
 add_executable(test_linkedlist LinkedList/test_linkedlist.cpp LinkedList/LinkedList.cpp)
 target_link_libraries(test_linkedlist ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_linkedlist ${CMAKE_THREAD_LIBS_INIT})
-
-add_executable(test_avltree Trees/AvlTree.cpp Trees/test_avltree.cpp)
-target_link_libraries(test_avltree ${GTEST_BOTH_LIBRARIES})
-target_link_libraries(test_avltree ${CMAKE_THREAD_LIBS_INIT})
 
 add_executable(test_DepthFirstSearch graph/DepthFirstSearch.cpp graph/test_DepthFirstSearch.cpp)
 target_link_libraries(test_DepthFirstSearch ${GTEST_BOTH_LIBRARIES})
@@ -44,16 +40,20 @@ add_executable(test_Edge graph/Edge.cpp graph/test_Edge.cpp)
 target_link_libraries(test_Edge ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_Edge ${CMAKE_THREAD_LIBS_INIT})
 
-add_test(Test test_undirectedgraph)
-add_test(Test test_directedgraph)
+add_executable(test_DirectedWeightedGraph graph/test_DirectedWeightedGraph.cpp graph/DirectedWeightedGraph.cpp graph/Edge.cpp)
+target_link_libraries(test_DirectedWeightedGraph ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_DirectedWeightedGraph ${CMAKE_THREAD_LIBS_INIT})
+
+add_test(Test test_UndirectedGraph)
+add_test(Test test_DirectedGraph)
 add_test(Test test_linkedlist)
-add_test(Test test_avltree)
 
 add_test(Test test_DepthFirstSearch)
 add_test(Test test_BreathFirstSearch)
 add_test(Test test_DetectCycle)
 add_test(Test test_TopologicalSort)
 add_test(Test test_Edge)
+add_test(Test test_DirectedWeightedGraph)
 
 enable_testing()
 

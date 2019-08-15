@@ -20,5 +20,10 @@ TEST(Edge, basic) {
     EXPECT_EQ(e4.getFrom(), 1);
     EXPECT_EQ(e4.getOther(e4.getFrom()), 2);
     EXPECT_EQ(e4.getWeight(), 3);
+
+    Edge e5(e4);
+    EXPECT_EQ(e5.getFrom(), e4.getFrom());
+    EXPECT_EQ(e5.getOther(e5.getFrom()), e4.getOther(e4.getFrom()));
+    EXPECT_EQ(e5.getWeight(), e4.getWeight());
 }
 

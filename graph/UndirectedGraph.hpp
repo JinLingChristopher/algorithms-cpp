@@ -38,8 +38,15 @@ public:
     }
 
     void addEdges(int v, int w) {
-        adj[v].insert(w);
-        adj[w].insert(v);
+        if (v < 0 || v >= this->numOfVertices()) {
+            throw std::invalid_argument("argument v invalid");
+        }
+        if (w < 0 || v >= this->numOfVertices()) {
+            throw std::invalid_argument("argument w invalid");
+        }
+
+        adjs[v].insert(w);
+        adjs[w].insert(v);
         ++this->E;
     }
 };

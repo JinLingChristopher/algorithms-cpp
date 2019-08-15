@@ -15,6 +15,9 @@ private:
     int weight;
 
 public:
+
+    Edge() = delete;
+
     Edge(int v, int w, double weight){
         std::cout << "Edge(int v, int w, double weight) called" << std::endl;
         if (v < 0) {
@@ -25,6 +28,10 @@ public:
         this->from = v;
         this->to = w;
         this->weight = weight;
+    }
+
+    Edge(const Edge& other):from(other.from), to(other.to), weight(other.weight) {
+        std::cout << "Edge(const Edge& other) called" << std::endl;
     }
 
     int getWeight() const {

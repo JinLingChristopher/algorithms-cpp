@@ -23,18 +23,17 @@ public:
     }
 
     void addEdges(int from, int to) {
-        if (from >= this->numOfVertices()) {
+        if (from < 0 || from >= this->numOfVertices()) {
             throw std::invalid_argument("argument from is invalid");
         }
-        if (to >= this->numOfVertices()) {
+        if (to < 0 || to >= this->numOfVertices()) {
             throw std::invalid_argument("argument to is invalid");
         }
-        adj[from].insert(to);
+        adjs[from].insert(to);
         ++this->E;
     }
 };
 
 std::ostream& operator<<(std::ostream& os, const DirectedGraph& g);
-
 
 #endif //ALGORITHM_CPP_DIRECTEDGRAPH_HPP
