@@ -5,12 +5,14 @@
 #ifndef ALGORITHM_CPP_EDGE_HPP
 #define ALGORITHM_CPP_EDGE_HPP
 
+#include <iostream>
+
 
 class Edge {
 private:
     int from;
     int to;
-    doubel weight;
+    int weight;
 
 public:
     Edge(int v, int w, double weight){
@@ -25,15 +27,15 @@ public:
         this->weight = weight;
     }
 
-    double getWeight() {
+    int getWeight() const {
         return weight;
     }
 
-    int getFrom() {
+    int getFrom() const {
         return from;
     }
 
-    int getOther(int vertex) {
+    int getOther(int vertex) const {
         if (vertex == from) {
             return to;
         } else if (vertex == to) {
@@ -41,8 +43,6 @@ public:
         }
         throw std::invalid_argument("argument vertex is invalid");
     }
-
-
 };
 
 

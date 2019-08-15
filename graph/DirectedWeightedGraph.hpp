@@ -1,0 +1,14 @@
+//
+// Created by king on 2019/8/15.
+//
+
+#ifndef ALGORITHM_CPP_DIRECTEDWEIGHTEDGRAPH_HPP
+#define ALGORITHM_CPP_DIRECTEDWEIGHTEDGRAPH_HPP
+
+
+class DirectedWeightedGraph {
+
+};
+
+
+#endif //ALGORITHM_CPP_DIRECTEDWEIGHTEDGRAPH_HPP
