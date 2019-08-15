@@ -16,6 +16,8 @@ private:
     void init();
     void relax(int u, int v);
 
+    const std::set<Edge> getAllEdges() const;
+
 public:
     ShortestPath(const DirectedWeightedGraph& g): graph(g) {
         std::cout << "ShortestPath(const DirectedWeightedGraph& g) called" << std::endl;
@@ -25,6 +27,8 @@ public:
     void dijkstra(int s);
 
     void bfsShortestPath(int s);
+
+    void bellman_ford(int s);
 
     const std::vector<int>& getDist() const;
 };

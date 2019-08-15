@@ -12,6 +12,17 @@ void ShortestPath::init() {
     pred = std::vector<int>(graph.numOfVertices(), -1);
 }
 
+const std::set<Edge> ShortestPath::getAllEdges() const {
+    std::set<Edge> result;
+    for (int i = 0; i < graph.numOfVertices(); ++i) {
+        auto edges = graph.getAdj(i);
+        for (const auto& item: edges) {
+            result.insert(item);
+        }
+    }
+    return result;
+}
+
 void ShortestPath::relax(int u, int v) {
     dist[v] = dist[u] + graph.getEdge(u, v).getWeight();
     pred[v] = u;
@@ -32,6 +43,34 @@ void ShortestPath::bfsShortestPath(int s) {
                 dist[v] = dist[u] + item.getWeight();
                 pred[v] = u;
                 bag.push(v);
+            }
+        }
+    }
+}
+
+void ShortestPath::bellman_ford(int s) {
+    init();
+    dist[s] = 0;
+    std::vector<bool> onQueue(graph.numOfVertices(), false);
+
+    std::queue<int> bag;
+    bag.push(s);
+    onQueue[s] = true;
+
+    while (!bag.empty()) {
+        int v = bag.front();
+        bag.pop();
+        onQueue[v] = false;
+
+        for (const auto& item: graph.getAdj(v)) {
+            int w = item.getTo();
+            if (dist[w] > dist[v] + item.getWeight()) {
+                dist[w] = dist[v] + item.getWeight();
+                pred[w] = v;
+                if (!onQueue[w]) {
+                    bag.push(w);
+                    onQueue[w] = true;
+                }
             }
         }
     }
@@ -78,3 +117,4 @@ void ShortestPath::dijkstra(int s) {
 const std::vector<int> &ShortestPath::getDist() const {
     return this->dist;
 }
+
