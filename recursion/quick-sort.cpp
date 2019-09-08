@@ -69,10 +69,11 @@ void quick_sort(int* arr, int n) {
 }
 
 int main() {
-	int arr[] = {3, 3, 2, 4, 5, 7, 6, 4, 10, 14, 13, 12, 11, 10, 1, 4, 5, 2, 9, 7, 6, 10, 0, 11, 8};
+	int arr[] = {2, 1};
 	quick_sort(arr, sizeof(arr) / sizeof(arr[0]));
 	for (const int& item: arr) {
 		cout << item << " ";
 	}
+	cout << endl;
 	return 0;
 }

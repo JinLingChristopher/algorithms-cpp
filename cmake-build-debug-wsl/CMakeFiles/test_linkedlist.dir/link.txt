@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/test_linkedlist.dir/LinkedList/test_linkedlist.cpp.o CMakeFiles/test_linkedlist.dir/LinkedList/LinkedList.cpp.o  -o test_linkedlist /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread 

@@ -2,21 +2,14 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
-      <paths name="WSL (72dca7fa-c6dd-405a-832a-0f5dad0dea1b)">
+      <paths name="WSL (0e106184-7118-4582-b2f5-3d3dd1e2dd91)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="WSL (7314a8c9-4ce2-4bc3-a8b4-624f32f7ce79)">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="WSL (fef42e7f-fd13-4176-b441-96d7e64871b9)">
+      <paths name="WSL (f6a17c64-9f17-47e1-b6e9-52ae13bd2562)">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

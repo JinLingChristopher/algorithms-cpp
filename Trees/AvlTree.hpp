@@ -5,30 +5,53 @@
 #ifndef ALGORITHM_CPP_AVLTREE_HPP
 #define ALGORITHM_CPP_AVLTREE_HPP
 
-class TreeNode {
-public:
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-
-    TreeNode(int n):val(n), left(nullptr), right(nullptr) {
-
-    }
-};
-
-class AVLTree{
+class AVLTree {
 private:
-    TreeNode* root;
+    class Node {
+    public:
+        int key;
+        int val;
+        int height;
+        int size;
+        Node* left;
+        Node* right;
 
-    TreeNode* insert(TreeNode* x, int val);
+        Node(int k, int x, int h, int s):key(k), val(x), height(h), size(s), left(nullptr), right(nullptr) {
+
+        }
+    };
+
+    Node* root;
+
+    int size(Node* x);
+
+    int height(Node* x);
+
+    Node* get(Node* x, int key);
+
+    Node* put(Node* x, int key, int val);
 
 public:
-    AVLTree():root(nullptr) {
+    AVLTree() {
+        root = nullptr;
+    }
+
+    ~AVLTree() {
 
     }
 
-    void insert(int val);
+    bool isEmpty();
+
+    int size();
+
+    int height();
+
+    int get(int key);
+
+    void put(int key, int val);
+
 
 };
+
 
 #endif //ALGORITHM_CPP_AVLTREE_HPP

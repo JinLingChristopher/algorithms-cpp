@@ -48,6 +48,10 @@ add_executable(test_ShortestPath graph/ShortestPath.cpp graph/test_ShortestPath.
 target_link_libraries(test_ShortestPath ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_ShortestPath ${CMAKE_THREAD_LIBS_INIT})
 
+add_executable(test_AvlTree Trees/AvlTree.cpp Trees/test_avltree.cpp)
+target_link_libraries(test_AvlTree ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(test_AvlTree ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_UndirectedGraph)
 add_test(Test test_DirectedGraph)
 add_test(Test test_linkedlist)
