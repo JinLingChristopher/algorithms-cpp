@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test_ShortestPath.dir/graph/ShortestPath.cpp.o CMakeFiles/test_ShortestPath.dir/graph/test_ShortestPath.cpp.o CMakeFiles/test_ShortestPath.dir/graph/DirectedWeightedGraph.cpp.o  -o test_ShortestPath /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread 

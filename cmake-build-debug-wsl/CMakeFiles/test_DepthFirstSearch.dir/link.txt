@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test_DepthFirstSearch.dir/graph/DepthFirstSearch.cpp.o CMakeFiles/test_DepthFirstSearch.dir/graph/test_DepthFirstSearch.cpp.o  -o test_DepthFirstSearch /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread 

@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test_AvlTree.dir/Trees/AvlTree.cpp.o CMakeFiles/test_AvlTree.dir/Trees/test_avltree.cpp.o  -o test_AvlTree /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread 

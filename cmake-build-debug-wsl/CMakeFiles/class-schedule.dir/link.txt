@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/class-schedule.dir/greedy/class-schedule.cpp.o  -o class-schedule 

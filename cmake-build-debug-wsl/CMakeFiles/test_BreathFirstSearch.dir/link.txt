@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/test_BreathFirstSearch.dir/graph/BreathFirstSearch.cpp.o CMakeFiles/test_BreathFirstSearch.dir/graph/test_BreathFirstSearch.cpp.o  -o test_BreathFirstSearch /usr/lib/libgtest.a /usr/lib/libgtest_main.a -lpthread 
