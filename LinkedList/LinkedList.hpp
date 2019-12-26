@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+
 class LinkedList{
 private:
     friend std::ostream& operator<<(std::ostream& os, const LinkedList& t);

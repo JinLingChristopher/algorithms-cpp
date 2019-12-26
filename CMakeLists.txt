@@ -52,10 +52,13 @@ add_executable(test_AvlTree Trees/AvlTree.cpp Trees/test_avltree.cpp)
 target_link_libraries(test_AvlTree ${GTEST_BOTH_LIBRARIES})
 target_link_libraries(test_AvlTree ${CMAKE_THREAD_LIBS_INIT})
 
+#add_executable(test_ListNode leetcode/ListNode/test_ListNode.cpp leetcode/ListNode/ListNode.cpp)
+#target_link_libraries(test_ListNode ${GTEST_BOTH_LIBRARIES})
+#target_link_libraries(test_ListNode ${CMAKE_THREAD_LIBS_INIT})
+
 add_test(Test test_UndirectedGraph)
 add_test(Test test_DirectedGraph)
 add_test(Test test_linkedlist)
-
 add_test(Test test_DepthFirstSearch)
 add_test(Test test_BreathFirstSearch)
 add_test(Test test_DetectCycle)
@@ -63,8 +66,10 @@ add_test(Test test_TopologicalSort)
 add_test(Test test_Edge)
 add_test(Test test_DirectedWeightedGraph)
 add_test(Test test_ShortestPath)
+# add_test(Test test_ListNode)
 
 enable_testing()
 
-add_executable(class-schedule greedy/class-schedule.cpp)
-add_executable(huffman-code greedy/huffman-code.cpp)
+add_executable(ListNode leetcode/ListNode/ListNode.cpp leetcode/ListNode/ListNode.hpp)
+#add_executable(class-schedule greedy/class-schedule.cpp)
+#add_executable(huffman-code greedy/huffman-code.cpp)
