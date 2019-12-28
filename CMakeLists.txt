@@ -70,6 +70,7 @@ add_test(Test test_ShortestPath)
 
 enable_testing()
 
-add_executable(ListNode leetcode/ListNode/ListNode.cpp leetcode/ListNode/ListNode.hpp)
+add_executable(ListNode leetcode/ListNode/ListNode.cpp)
+add_executable(MyLinkedList leetcode/MyLinkedList/MyLinkedList.cpp leetcode/MyLinkedList/MyLinkedList.hpp)
 #add_executable(class-schedule greedy/class-schedule.cpp)
 #add_executable(huffman-code greedy/huffman-code.cpp)

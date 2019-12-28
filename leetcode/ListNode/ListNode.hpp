@@ -6,46 +6,42 @@
 #define ALGORITHM_CPP_LISTNODE_HPP
 
 #include <initializer_list>
-#include <iostream>
 
-class ListNode {
-public:
+struct ListNode {
     int val;
     ListNode* next;
     ListNode(int x): val(x), next(nullptr) {
-        std::cout << "ListNode(int x) called" << std::endl;
-    }
 
-    ~ListNode() {
-        std::cout << "~ListNode()" << std::endl;
-        ListNode* curr = this;
-        ListNode* ptr = nullptr;
-        while (curr) {
-            ptr = curr;
-            curr = curr->next;
-            delete ptr;
-        }
     }
 };
 
-ListNode* buildList(std::initializer_list<int> l) {
-    if (l.size() == 0) {
-        return nullptr;
-    }
-    ListNode* head = nullptr;
-    ListNode* tail = nullptr;
+ListNode* buildLists(std::initializer_list<int> l) {
+    ListNode* head, *tail;
+    head = tail = nullptr;
+
     for (auto iter = l.begin(); iter != l.end(); ++iter) {
-        ListNode* curr = new ListNode(*iter);
+        auto n = new ListNode(*iter);
         if (!head) {
-            head = curr;
+            head = n;
+            tail = n;
+        } else {
+            tail->next = n;
+            tail = tail->next;
         }
-        if (tail) {
-            tail->next = curr;
-        }
-        tail = curr;
     }
     return head;
 }
+
+void destroyList(ListNode* head) {
+    ListNode* ptr = nullptr;
+    while (head) {
+        ptr = head;
+        ptr->next = nullptr;
+        head = head->next;
+        delete ptr;
+    }
+}
+
 
 
 #endif //ALGORITHM_CPP_LISTNODE_HPP
