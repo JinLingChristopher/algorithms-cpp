@@ -15,33 +15,9 @@ struct ListNode {
     }
 };
 
-ListNode* buildLists(std::initializer_list<int> l) {
-    ListNode* head, *tail;
-    head = tail = nullptr;
-
-    for (auto iter = l.begin(); iter != l.end(); ++iter) {
-        auto n = new ListNode(*iter);
-        if (!head) {
-            head = n;
-            tail = n;
-        } else {
-            tail->next = n;
-            tail = tail->next;
-        }
-    }
-    return head;
-}
-
-void destroyList(ListNode* head) {
-    ListNode* ptr = nullptr;
-    while (head) {
-        ptr = head;
-        ptr->next = nullptr;
-        head = head->next;
-        delete ptr;
-    }
-}
-
-
+ListNode* buildList(std::initializer_list<int> l);
+void destroyList(ListNode* head);
+ListNode* rotateRight(ListNode* head, int k);
+ListNode* addTwoLists(ListNode* l1, ListNode* l2);
 
 #endif //ALGORITHM_CPP_LISTNODE_HPP
