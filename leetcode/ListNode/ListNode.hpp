@@ -9,15 +9,14 @@
 
 struct ListNode {
     int val;
-    ListNode* next;
-    ListNode(int x): val(x), next(nullptr) {
-
-    }
+    ListNode *next;
+    ListNode(int x) : val(x), next(nullptr) {}
 };
 
-ListNode* buildList(std::initializer_list<int> l);
-void destroyList(ListNode* head);
-ListNode* rotateRight(ListNode* head, int k);
-ListNode* addTwoLists(ListNode* l1, ListNode* l2);
+ListNode *buildList(std::initializer_list<int> l);
+void destroyList(ListNode *head);
+ListNode *rotateRight(ListNode *head, int k);
+ListNode *addTwoLists(ListNode *l1, ListNode *l2);
+ListNode *detectCycle(ListNode *head);
 
-#endif //ALGORITHM_CPP_LISTNODE_HPP
+#endif // ALGORITHM_CPP_LISTNODE_HPP
