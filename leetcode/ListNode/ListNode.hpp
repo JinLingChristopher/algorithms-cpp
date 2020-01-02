@@ -18,5 +18,6 @@ void destroyList(ListNode *head);
 ListNode *rotateRight(ListNode *head, int k);
 ListNode *addTwoLists(ListNode *l1, ListNode *l2);
 ListNode *detectCycle(ListNode *head);
+bool hasCycle(ListNode* head);
 
 #endif // ALGORITHM_CPP_LISTNODE_HPP
