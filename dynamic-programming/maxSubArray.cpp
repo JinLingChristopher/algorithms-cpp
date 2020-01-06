@@ -1,9 +1,9 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
-int maxSubArray(const vector<int>& nums) {
+int maxSubArray(const vector<int> &nums) {
     int total, result;
     total = result = nums[0];
 
