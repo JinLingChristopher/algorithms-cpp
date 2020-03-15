@@ -1,37 +1,55 @@
+//
+// Created by Edison King on 2020/3/7.
+//
 #include <iostream>
 #include <vector>
 
 using namespace std;
 
-
-void place_queen(int* queen, int n, int r, int* count) {
+void helper(vector<int> record, int n, int r, vector<vector<string>>& solutions) {
     if (r == n) {
-        *count += 1;
-        for (int i = 0; i < n; ++i) {
-            cout << queen[i] << " ";
+        vector<string> sol;
+        for (int i = 0; i < n; i++) {
+            sol.push_back(string(n, '.'));
         }
-        cout << endl;
+        for (int i = 0; i < n; i++) {
+            sol[i][record[i]] = 'Q';
+        }
+        solutions.push_back(sol);
     }
-    for (int j = 0; j < n; j++) {  
-        int legal = 1;  // 每一行的每个位置都可能是合法的
-        for (int i = 0; i < r; ++i) { // 查看先前行的位置，如果在同一列，斜线上，则非法，若合法则放置。
-            if ((queen[i] == j) || (queen[i] == j + r - i) || (queen[i] == j - r + i)) {
-                legal = 0;
+    for (int j = 0; j < n; ++j) {
+        bool legal = true;
+        for (int i = 0; i < r; i++) {
+            if ((record[i] == j) || (record[i] == j + r - i) || (record[i] == j - r + i)) {
+                legal = false;
             }
         }
         if (legal) {
-            queen[r] = j;
-            place_queen(queen, n, r + 1, count);
+            record.push_back(j);
+            helper(record, n, r+1, solutions);
+            record.pop_back();
         }
     }
 }
 
+vector<vector<string>> solveNQueens(int n) {
+    vector<int> record;
+    vector<vector<string>> res;
+    helper(record, n, 0, res);
+
+    return res;
+}
+
 int main() {
-    int n = 4;
-    int queen[4];
-    int count = 0;
-    place_queen(queen, n, 0, &count);
-    cout << "for n = " << n << " there is total " << count << " solutions." << endl;
+
+    auto result = solveNQueens(11);
+    cout << "There are total " << result.size() << " solutions" << endl;
+    for (const auto& sol : result) {
+        for (const auto& line: sol) {
+            cout << line << endl;
+        }
+        cout << "---------" << endl;
+    }
 
     return 0;
 }

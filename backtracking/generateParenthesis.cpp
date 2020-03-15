@@ -11,17 +11,11 @@ void helper(int n, vector<string>& result, string current, int left, int right) 
     }
     if (right < left) {
         if (left < n) {
-            current.push_back('(');
-            helper(n, result, current, left + 1, right);
-            current.pop_back();
+            helper(n, result, current + '(', left + 1, right);
         }
-        current.push_back(')');
-        helper(n, result, current, left, right+1);
-        current.pop_back();
+        helper(n, result, current + ')', left, right+1);
     } else {
-        current.push_back('(');
-        helper(n, result, current, left+1, right);
-        current.pop_back();
+        helper(n, result, current + '(', left+1, right);
     }
 }
 

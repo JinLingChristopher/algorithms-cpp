@@ -5,30 +5,30 @@
 #include <vector>
 #include <iostream>
 #include <numeric>
+#include <deque>
 
 using namespace std;
 
 
 vector<vector<int>> findContinuousSequence(int target) {
     vector<vector<int>> result;
-    for (int start = 1; start <= target / 2; ++start) {
-        vector<int> curr;
-        int total = 0;
-        for (int i = start; i <= target / 2 + 1; ++i) {
-            if (total == 0 || i == curr.back() + 1) {
-                curr.push_back(i);
-                total += i;
-            }
-            if (total == target) {
-                result.push_back(curr);
-                break;
-            } else if (total > target) {
-                break;
-            }
+    deque<int> q;
+    int curr = 0;
+    for (int i = 1; i <= target / 2 + 1; ++i) {
+        q.push_back(i);
+        curr += i;
+        while (curr > target) {
+            int t = q.front();
+            q.pop_front();
+            curr -= t;
+        }
+        if (curr == target) {
+            result.push_back(vector<int>(q.begin(), q.end()));
         }
     }
     return result;
 }
+
 
 int main() {
     int target = 15;

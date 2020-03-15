@@ -87,3 +87,71 @@ add_executable(MedianFinder leetcode/MedianFinder.cpp)
 add_executable(verifyPostOrder leetcode/verifyPostOrder.cpp)
 add_executable(rotateArrayMin array/rotateArrayMin.cpp)
 add_executable(lengthOfLongestSubstringNoDup leetcode/lengthOfLongestSubstringNoDup.cpp)
+add_executable(translateNum leetcode/translateNum.cpp)
+add_executable(existPath matrix/existPath.cpp)
+add_executable(movingCount leetcode/movingCount.cpp)
+add_executable(findNumberIn2DArray leetcode/findNumberIn2DArray.cpp)
+add_executable(countDigitOne leetcode/countDigitOne.cpp)
+add_executable(reversePairs recursion/reversePairs.cpp)
+add_executable(problem1 playground/problem1.cpp)
+add_executable(reverseWords leetcode/reverseWords.cpp)
+add_executable(findNthDigit leetcode/findNthDigit.cpp)
+add_executable(myPow leetcode/myPow.cpp)
+add_executable(isNumber leetcode/isNumber.cpp)
+add_executable(permute backtracking/permute.cpp)
+add_executable(subset-sum backtracking/subset-sum.cpp)
+add_executable(subsets leetcode/subsets.cpp)
+add_executable(LRUCache leetcode/LRUCache.cpp)
+add_executable(orangeRotting leetcode/orangeRotting.cpp)
+add_executable(strToInt leetcode/strToInt.cpp)
+add_executable(regIsMatch leetcode/regIsMatch.cpp)
+add_executable(generateParenthesis backtracking/generateParenthesis.cpp)
+add_executable(n-queen backtracking/n-queen.cpp)
+
+add_executable(maxAliveYear leetcode/maxAliveYear.cpp)
+
+add_executable(letterCasePermutation backtracking/letterCasePermutation.cpp)
+
+add_executable(noRepeatPermutation leetcode/noRepeatPermutation.cpp)
+
+add_executable(keyBoardUnlock leetcode/keyBoardUnlock.cpp)
+
+add_executable(numIslands leetcode/numIslands.cpp)
+
+add_executable(T9KeyBoard leetcode/T9KeyBoard.cpp)
+
+add_executable(findMagicIndex leetcode/findMagicIndex.cpp)
+
+add_executable(multiply leetcode/multiply.cpp)
+
+add_executable(findCloset leetcode/findCloset.cpp)
+
+add_executable(wiggleSort leetcode/wiggleSort.cpp)
+
+add_executable(maxAreaOfIslands leetcode/maxAreaOfIslands.cpp)
+
+add_executable(main leetcode/ListNode/main.cpp leetcode/ListNode/ListNode.cpp)
+
+add_executable(edit leetcode/edit.cpp)
+
+add_executable(catchKongLianShun leetcode/catchKongLianShun.cpp)
+
+add_executable(missingNumber leetcode/missingNumber.cpp)
+
+add_executable(longestCommonPrefix leetcode/longestCommonPrefix.cpp)
+
+add_executable(majong leetcode/majong.cpp)
+
+add_executable(mergeInterval leetcode/mergeInterval.cpp)
+
+add_executable(catMove leetcode/catMove.cpp)
+
+add_executable(minTravalCost leetcode/minTravalCost.cpp)
+
+add_executable(coinChange leetcode/coinChange.cpp)
+
+add_executable(robotJump leetcode/robotJump.cpp)
+
+add_executable(bytedance1 leetcode/bytedance1.cpp)
+
+add_executable(bytedance2 leetcode/bytedance2.cpp)
