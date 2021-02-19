@@ -40,9 +40,9 @@ public:
 
     double median() {
         if (large.size() > small.size()) {
-            return (double)large.top();
+            return static_cast<double>(large.top());
         } else if (large.size() < small.size()) {
-            return (double)small.top();
+            return static_cast<double>(small.top());
         }
         return (small.top() + large.top()) / 2.0;
     }

@@ -152,6 +152,28 @@ add_executable(coinChange leetcode/coinChange.cpp)
 
 add_executable(robotJump leetcode/robotJump.cpp)
 
-add_executable(bytedance1 leetcode/bytedance1.cpp)
+add_executable(zero-one dynamic-programming/knapsack/zero-one.cpp)
 
-add_executable(bytedance2 leetcode/bytedance2.cpp)
+add_executable(canPartitionKSubsets array/canPartitionKSubsets.cpp)
+
+add_executable(canPartition dynamic-programming/knapsack/canPartition.cpp)
+
+add_executable(trap leetcode/trap.cpp)
+
+add_executable(putOrange leetcode/putOrange.cpp)
+
+add_executable(numToys leetcode/numToys.cpp)
+
+add_executable(playground leetcode/playground.cpp)
+
+add_executable(maxDistance leetcode/maxDistance.cpp)
+
+add_executable(longWords longWords.cpp)
+
+add_executable(groupAnagram leetcode/groupAnagram.cpp)
+
+add_executable(maxSubArray dynamic-programming/maxSubArray.cpp)
+
+add_executable(AnimalShelf leetcode/AnimalShelf.cpp)
+
+add_executable(printBin leetcode/printBin.cpp)

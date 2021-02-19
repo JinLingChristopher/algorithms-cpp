@@ -20,6 +20,26 @@ vector<vector<int>> subsets(const vector<int>& nums) {
     return result;
 }
 
+void solver(const vector<int>& nums, int index, vector<vector<int>>& result, vector<int>& curr) {
+    if (index == nums.size()) {
+        return;
+    }
+
+    curr.push_back(nums[index]);
+    result.push_back(curr);
+    solver(nums, index + 1, result, curr);
+
+    curr.pop_back();
+    solver(nums, index + 1, result, curr);
+}
+
+vector<vector<int>> subsets_dfs(const vector<int>& nums) {
+    vector<vector<int>> result{{}};
+    vector<int> curr;
+    solver(nums, int index, result, curr);
+
+    return result;
+}
 
 int main() {
     vector<int> nums{1, 2, 3};

@@ -33,12 +33,12 @@ void DepthFirstSearch::recursiveDFSHelper(int s) {
     validateVertex(s);
     if (!marked[s]) {
         marked[s] = true;
-        // cout << s << " ";
         for (const auto w: graph.getAdj(s)) {
             recursiveDFSHelper(w);
         }
     }
 }
+
 void DepthFirstSearch::recursiveDFS(int s) {
     clearMarked();
     recursiveDFSHelper(s);
