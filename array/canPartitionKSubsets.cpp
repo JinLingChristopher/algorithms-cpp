@@ -5,8 +5,7 @@
 
 using namespace std;
 
-bool backtrace(const vector<int> &nums, vector<int> &sums, int i, int k,
-               int s) {
+bool backtrace(const vector<int> &nums, vector<int> &sums, int i, int k, int s) {
     if (i == nums.size()) {
         return true;
     }

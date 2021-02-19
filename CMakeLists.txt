@@ -177,3 +177,4 @@ add_executable(maxSubArray dynamic-programming/maxSubArray.cpp)
 add_executable(AnimalShelf leetcode/AnimalShelf.cpp)
 
 add_executable(printBin leetcode/printBin.cpp)
+add_executable(isValid leetcode/isValid.cpp)
