@@ -55,9 +55,31 @@ int lengthOfLengthSubstringNoDupDp(const string& s) {
     return result;
 }
 
+int lengthOfLongestSubstring(const string& s) {
+    int result = 0;
+    int lo = 0, hi = 0;
+
+    while (hi < s.size()) {
+        char c = s[hi];
+        bool flag = true;
+        for (int j = hi - 1; j >= lo; --j) {
+            if (c == s[j]) {
+                result = std::max(result, hi - lo);
+                // lo += 1;
+                lo = j + 1;
+                flag = false;
+                break;
+            }
+        }
+        hi += flag;
+    }
+    result = std::max(result, hi - lo);
+    return result;
+}
 
 int main() {
     string s{"pwwekw"};
+    cout << lengthOfLongestSubstring(s) << endl;
     cout << lengthOfLongestSubstringNoDup(s) << endl;
     cout << lengthOfLengthSubstringNoDupDp(s) << endl;
     return 0;

@@ -36,10 +36,25 @@ vector<vector<int>> permute(const vector<int>& nums) {
     return permutations;
 }
 
-int main() {
-    vector<int> nums{1, 2, 3, 4};
+vector<vector<int>> permuteBySwap(const vector<int>& nums) {
+    vector<vector<int>> result;
+    result.push_back(nums);
+    for (int i = 0; i < nums.size(); ++i) {
+        for (int j = 0; j < nums.size(); ++j) {
+            if (i != j) {
+                vector<int> t = result[i];
+                swap(t[i], t[j]);
+                result.push_back(t);
+            }
+        }
+    }
+    return result;
+}
 
-    auto permutations = permute(nums);
+int main() {
+    vector<int> nums{1, 2, 3};
+
+    auto permutations = permuteBySwap(nums);
     for (const auto& item: permutations) {
         for (int i = 0; i < item.size(); ++i) {
             cout << item[i] << " ";
