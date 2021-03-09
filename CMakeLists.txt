@@ -178,3 +178,7 @@ add_executable(AnimalShelf leetcode/AnimalShelf.cpp)
 
 add_executable(printBin leetcode/printBin.cpp)
 add_executable(isValid leetcode/isValid.cpp)
+
+add_executable(maxTree leetcode/maxTree.cpp)
+
+add_executable(maxWidthOfVerticalAread leetcode/maxWidthOfVerticalAread.cpp)
